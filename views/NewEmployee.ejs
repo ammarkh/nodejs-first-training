@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+</head>
+<body>
+<!--header-->
+<% include Templates/Header.ejs %>
+<!-- container-->
+<center>
+    <!-- new employee form -->
+    <div class="NewForm">
+        <form method="post" id="myform">
+            <div class="form-ctrl">
+                <label> Emplyee Name </label> <i id="Name_red" hidden="hidden" class="redAlert"> * </i>
+                <input type="text" id="Employee_Name" name="user"/><br><br>
+            </div>
+            <div class="form-ctrl">
+                <label> Employee Age</label> <i id="Age_red" hidden="hidden" class="redAlert"> * </i>
+                <input type="text" id="Employee_Age" name="Age"/><br><br>
+            </div>
+            <div class="form-ctrl">
+                <label> Department</label> <i id="Dep_red" hidden="hidden" class="redAlert"> * </i>
+
+                <select name="Dep_value"> <!-- this value (Dep_value will point on select value ) -->
+                    <option value="0"> ---- select Department ----</option>
+
+                    <% for(i = 0; i < dep.length; i++){ %>
+
+                    <option value="<%= dep[i].ID %>"><%= dep[i].Dep_Name %></option>
+
+                    <% } %>
+                </select>
+            </div>
+            <br/><br/>
+            <div class="form-ctrl">
+                <label>Manager</label>
+                <select name="manger_value"> <!-- this value(manger_value  will  point on selected value)-->
+                    <option value="0"> ---- select Manager ----</option>
+                    <% for(var item in manager){ %>
+                    <option value="<%= manager[item].id %>"> <%= manager[item].Name %> </option>
+
+                    <% } %>
+                </select>
+            </div>
+            <br><br>
+            <input type="button" value="send" id="submit_data">
+        </form>
+
+
+    </div>
+</center>
+
+<!--footer-->
+<div id="footer">
+
+</div>
+
+<script>
+    var DepRequire = document.getElementsByName('Dep_value')[0];
+    var Dep_red = document.getElementById('Dep_red');
+    var RequireName = document.getElementById('Employee_Name');
+    var Name_red = document.getElementById('Name_red');
+    var RequireAge = document.getElementById('Employee_Age');
+    var Age_red = document.getElementById('Age_red');
+
+    var myform = document.getElementById('myform');
+
+    document.getElementById('submit_data').addEventListener('click', _send, false);
+
+
+    function Require_Name(object, message) {
+        if (object.value == "") {
+            message.removeAttribute('hidden');
+            return false;
+        } else {
+            message.setAttribute('hidden', 'hidden');
+            return true;
+        }
+    }
+
+    function Require_Age(object, message) {
+        if (object.value == "" || isNaN(object.value)) {
+            message.removeAttribute('hidden');
+            return false;
+        } else {
+            message.setAttribute('hidden', 'hidden');
+            return true;
+        }
+    }
+
+
+    function selectReq() {
+        if (DepRequire.selectedIndex === 0) {
+            Dep_red.removeAttribute('hidden');
+            // alert('Department is require');
+
+            return false;
+        } else {
+            Dep_red.setAttribute('hidden', 'hidden');
+            return true;
+        }
+    }
+
+    function _send() {
+
+        if (selectReq() && Require_Age(RequireAge, Age_red) && Require_Name(RequireName, Name_red)) {
+            myform.submit();
+        }
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+
+</head>
+<body>
+<% include Templates/Header.ejs %>
+
+<div class="NewDepForm">
+    <form method="post" id="newDepForm">
+        <div class="title_NewDep">
+            <h2> New Department Form </h2>
+        </div>
+        <div class="form-ctrl-dep">
+            <label> Department Name </label> <i hidden="hidden" class="redAlert" id="req_DepName">*</i>
+            <input type="text" id="Dep_Name" placeholder="insert Department Name " name="DepName"/>
+        </div>
+
+        <div class="form-ctrl-dep">
+            <label> Department Description</label>
+            <textarea name="Dep_Dsc">
+
+            </textarea>
+        </div>
+        <br><br>
+        <div class="form-ctrl-dep">
+            <input type="button" value="Add Department" id="addDep" />
+        </div>
+    </form>
+</div>
+</body>
+<script type="text/javascript">
+    var DepNameReq = document.getElementById('Dep_Name');
+    var req_DepName = document.getElementById('req_DepName');
+
+    document.getElementById('addDep').addEventListener('click', _sendNew, false);
+
+    function _sendNew() {
+        if (DepNameReq.value == "") {
+            req_DepName.removeAttribute('hidden');
+        } else {
+            req_DepName.setAttribute('hidden', 'hidden');
+            document.getElementById('newDepForm').submit();
+        }
+    }
+</script>
+</html>
