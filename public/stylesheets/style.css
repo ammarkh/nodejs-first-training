@@ -101,7 +101,96 @@ a:link, a:visited, a:hover, a:active {
     max-height: 50%;
 }
 
-.Value_Content:hover{
-    background-color: lightgray ;
+.Value_Content:hover {
+    background-color: lightgray;
     color: #fff;
+}
+
+/* New Employee Style @use some class for other forms */
+.NewForm {
+    border: 1px solid gray;
+    width: 50%;
+
+    background-color: #f5f3f3;
+    padding: 2%;
+    margin: 2%;
+    height: auto;
+}
+
+.form-ctrl {
+    width: 100%;
+    margin: 2px;
+}
+
+.form-ctrl label {
+    float: left;
+    width: 35%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+.form-ctrl input[type=text], select {
+    float: right;
+    width: 35%;
+    height: 20px;
+}
+
+#submit_data {
+    width: 25%;
+    height: 35px;
+    margin-top: 5%;
+}
+
+.redAlert {
+    color: red;
+}
+
+/*New department style */
+.title_NewDep {
+    color: darkslategray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 1px solid gray;
+    width: 35%;
+    border-radius: 3pc;
+    text-indent: 2%;
+    margin: 2%;
+    background-color: white;
+}
+
+.NewDepForm {
+    border: 1px solid gray;
+    width: 60%;
+    margin: 2%;
+    height: 60%;
+    background-color: whitesmoke;
+}
+
+.form-ctrl-dep {
+    width: 100%;
+    height: 30%;
+    margin: 2%;
+}
+
+.form-ctrl-dep label {
+    float: left;
+    width: 50%;
+    font-family: Leelawadee;
+    margin: 1%;
+}
+
+.form-ctrl-dep textarea, input[type=text] {
+    float: inherit;
+    width: 50%;
+    font-family: Leelawadee;
+    margin: 1%;
+    max-width: 40%;
+    max-height: 45px;
+}
+
+.form-ctrl-dep input[type=button] {
+    padding: 1%;
+    color: white;
+    background-color: limegreen;
+    border: gray 1px solid;
+    cursor: pointer;
 }
