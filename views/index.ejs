@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=    %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+
+</head>
+<body>
+<!--header-->
+<% include Templates/Header.ejs %>
+<!-- container-->
+<center>
+    <div id="content" style="overflow-y: scroll;overflow-x: hidden" class="scrollBar" >
+        <table>
+            <thead>
+            <td class="Title_Content">
+                Employee ID
+            </td>
+            <td class="Title_Content">
+                Employee Name
+            </td>
+            </thead>
+            <% for(var i = 0 ; i < List.length; i++){ %>
+            <tr>
+                <td class="Value_Content" >
+                    <h1> <%= List[i].id %> </h1>
+                </td>
+                <td class="Value_Content">
+                    <h1><a href="/EmployeeDetails?id=<%=List[i].id%>"> <%= List[i].Name %> </a></h1>
+                </td>
+            </tr>
+
+            <% } %>
+        </table>
+    </div>
+</center>
+
+<!--footer-->
+<div id="footer">
+
+</div>
+</body>
+</html>
