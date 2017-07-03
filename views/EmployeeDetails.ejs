@@ -1,0 +1,46 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <link rel="stylesheet" href='/stylesheets/style.css'>
+    <style type="text/css">
+        .Detail_Title {
+            font-family: Corbel;
+
+        }
+
+        .Detail_box {
+            background-color: #f0f0f0;
+            width: 40%;
+            padding: 0.5%;
+            margin: 1%;
+            box-shadow: 4px 2px 4px 2px lightgray;
+        }
+
+        .info_Detail {
+           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+<% include Templates/Header.ejs %>
+
+<center>
+    <div class="Detail_box">
+
+        <h2 class="Detail_Title">
+            Employee Details For Employee Number <%= Employee[0].id %>
+        </h2>
+        <div class="info_Detail">
+            <h4>User Name : <%= Employee[0].Name %> </h4>
+            <h4>Age : <%= Employee[0].Age %> Years Old</h4>
+            <h4>DEPARTMENT : <%= Employee[0].Dep_Name %></h4>
+            <h4> Manager : <%= (Employee[0].M == null) ? 'No Manager' : Employee[0].M %></h4>
+        </div>
+
+
+    </div>
+</center>
+
+</body>
+</html>
